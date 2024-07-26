@@ -19,7 +19,8 @@ io.on('connection', (socket) => {
   console.log(`User connected: ${socket.id}`);
 
   socket.on('send-message', (message) => {
-    console.log(message);
+    //Broadcast the recevied mesage to all the connected Users
+    io.emit('received-message', message);
   });
 
   socket.on('disconnect', () => {
