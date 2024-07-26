@@ -2,7 +2,7 @@
 
 ![Alt text](chatapp.gif)
 
-A real-time chat application built using React with Vite, Node.js with Express, and Socket.IO. This application allows users to communicate in real-time via a chat interface.
+This application allows users to communicate in real-time via a chat interface.
 
 ## Features
 
