@@ -36,6 +36,8 @@ const App = () => {
     !newMessage == ''
       ? socket.emit('send-message', messageData)
       : alert('Message cannot be empty');
+
+    setNewMessage('');
   };
 
   return (
@@ -78,6 +80,7 @@ const App = () => {
                   type="text"
                   placeholder="Type your message..."
                   className="w-full rounded-md border-2 outline-none px-3 py-2"
+                  value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                 />
                 <button
