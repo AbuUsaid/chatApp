@@ -42,15 +42,19 @@ const App = () => {
     <>
       <div className="w-screen h-screen bg-gray-100 flex justify-center items-center">
         {chatActive ? (
-          <div>
-            <h1>Chat App</h1>
+          <div className="rounded-md p-2 w-full md:w-[80vw] lg:w-[40vw] mx-auto">
+            <h1 className="text-center font-bold text-xl my-2 uppercase">
+              Chat App
+            </h1>
             <div>
-              <div>
+              <div className="overflow-y-scroll h-[80vh] lg:h-[60vh]">
                 {messages.map((message, index) => {
                   return (
                     <div
                       key={index}
-                      className="flex rounded-md shadow-md my-5 w-fit"
+                      className={`flex rounded-md shadow-md my-5 w-fit ${
+                        username === message.user && 'ml-auto'
+                      }`}
                     >
                       <div className="bg-green-400 flex justify-center items-center rounded-l-md">
                         <h3 className="font-bold text-lg px-2">
@@ -66,11 +70,14 @@ const App = () => {
                   );
                 })}
               </div>
-              <form className="flex gap-2 md:gap-4 " onSubmit={handleSubmit}>
+              <form
+                className="flex gap-2 md:gap-4 justify-between"
+                onSubmit={handleSubmit}
+              >
                 <input
                   type="text"
                   placeholder="Type your message..."
-                  className="rounded-md border-2 outline-none px-3 py-2"
+                  className="w-full rounded-md border-2 outline-none px-3 py-2"
                   onChange={(e) => setNewMessage(e.target.value)}
                 />
                 <button
